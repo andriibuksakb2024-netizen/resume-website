@@ -1,0 +1,74 @@
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --accent: #000000;
+    --footer-color: #666;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent: #ffffff;
+    --footer-color: #aaa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+.resume-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.main-header {
+    background: var(--accent);
+    color: var(--card-bg);
+    padding: 60px 40px;
+}
+
+.resume-content { display: grid; grid-template-columns: 280px 1fr; gap: 20px; padding: 30px; }
+.card { background: var(--bg-color); padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+
+.theme-switch-wrapper {
+    position: fixed; top: 20px; right: 20px;
+    display: flex; align-items: center; z-index: 100;
+}
+.theme-label { margin-right: 10px; font-size: 14px; }
+.theme-switch { position: relative; display: inline-block; width: 44px; height: 22px; }
+.theme-switch input { display: none; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc; transition: .4s; border-radius: 34px;
+}
+.slider:before {
+    position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px;
+    background-color: white; transition: .4s; border-radius: 50%;
+}
+input:checked + .slider { background-color: #2196F3; }
+input:checked + .slider:before { transform: translateX(22px); }
+
+#main-footer { text-align: center; padding: 40px 0; border-top: 1px solid #eee; font-size: 13px; color: var(--footer-color); }
+#main-footer p { margin: 4px 0; }
+
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); z-index: 1000;
+}
+.modal-card {
+    background: var(--card-bg); width: 350px; margin: 10% auto;
+    padding: 30px; border-radius: 12px; position: relative;
+}
+.feedback-form input, .feedback-form textarea { width: 100%; margin-bottom: 10px; padding: 10px; box-sizing: border-box; }
+.submit-btn { width: 100%; padding: 12px; background: var(--accent); color: var(--card-bg); border: none; cursor: pointer; }
+.close-icon { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
